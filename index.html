@@ -1,175 +1,148 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة هبوط روكيت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apple of Fortune Hack</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to bottom, #060b1a, #000000);
+      font-family: sans-serif;
+      background-color: #8b3f24;
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .logo {
+      margin: 20px 0;
+      max-width: 300px;
+      width: 80%;
+    }
+
+    .boxes, .buttons, #gameContainer {
+      display: none;
+    }
+
+    .boxes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .box {
+      width: 60px;
+      height: 60px;
+      background-color: green;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .apple {
+      background-color: red !important;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: #550000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #770000;
+    }
+
+    #authContainer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #idInput {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+      width: 200px;
       text-align: center;
     }
-    .button {
-      background: linear-gradient(45deg, #d4145a, #fbb03b);
-      border: none;
-      border-radius: 20px;
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
-      text-decoration: none;
-      display: inline-block;
-    }
-    .button-green {
-      background: linear-gradient(45deg, #0f0, #0c0);
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-      animation: pulse 1.5s infinite;
-      color: black;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #0f0; }
-      50% { box-shadow: 0 0 30px #0f0; }
-      100% { box-shadow: 0 0 10px #0f0; }
-    }
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      25% { transform: scale(1.1); }
-      50% { transform: scale(1); }
-      75% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .heartbeat {
-      animation: heartbeat 1s infinite;
-      color: #00ffcc;
-      font-size: 2em;
-    }
-    .section {
-      padding: 30px 20px;
-    }
-    #signal-display {
-      font-size: 1.5em;
-      margin-top: 20px;
-    }
-    #id-input-section {
-      display: none;
-      margin-top: 20px;
-    }
-    #id-input-section input {
-      padding: 10px;
-      font-size: 1em;
-      border-radius: 8px;
-      border: none;
-      margin-top: 10px;
-      width: 200px;
-    }
-    #id-confirm-btn, #deposit-btn {
-      margin-top: 10px;
-      background-color: #00ff00;
-      color: #000;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
+
+    #errorMsg {
+      color: #ffdede;
+      margin-top: 5px;
       font-weight: bold;
-      cursor: pointer;
-    }
-    #balance-warning {
-      margin-top: 15px;
-      font-size: 1.1em;
-      color: #ff5050;
-    }
-    table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      width: 80%;
-      margin-bottom: 40px;
-      direction: rtl;
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #444;
     }
   </style>
 </head>
-
 <body>
-  <div class="section">
-    <h1>دورك لم ينته بعد. انتظر بضع ثوانٍ إضافية!</h1>
-    <a class="button" href="https://t.me/mavritBot" target="_blank">✉️ Message us</a>
-    <a class="button" href="https://reffpa.com/L?tag=d_4553825m_62287c_&site=4553825&ad=62287&r=registration" target="_blank">🎮 Play Aviator</a>
-    <button id="signal-btn" class="button button-green" onclick="getSignal()">✅ Get Signal</button>
-    <div id="signal-display"></div>
-  </div>
 
-  <div id="id-input-section" class="section">
-    <h2>أدخل معرف 1xBet الخاص بك</h2>
-    <input type="number" id="user-id" placeholder="معرف 1xBet الخاص بك">
+  <!-- Логотип -->
+  <img src="IMG_6957.PNG" alt="Apple of Fortune" class="logo">
+
+  <!-- Форма авторизации -->
+  <div id="authContainer">
+    <h2>1xbet أدخل رقم تعريف</h2>
+    <input type="text" id="idInput" placeholder="ID (1XBET)" maxlength="10" />
     <br>
-    <button id="id-confirm-btn" onclick="handleIdSubmit()">تأكيد المعرف</button>
-    <div id="balance-warning"></div>
-    <a id="deposit-btn" href="https://reffpa.com/L?tag=d_4553825m_62287c_&site=4553825&ad=62287&r=registration" target="_blank" style="display:none">🤑 أضف أموال</a>
+    <button onclick="verificarID()">Enter</button>
+    <div id="errorMsg"></div>
   </div>
 
-  <div class="section">
-    <h2>الفائزون الجدد</h2>
-    <table>
-      <tr><th>الاسم</th><th>الشهادة</th><th>الأرباح</th></tr>
-      <tr><td>محمد ولد أحمد</td><td>سددت ديوني والآن أعيش براحة</td><td>3600 MRU</td></tr>
-      <tr><td>سيدي ولد عبد الله</td><td>لم أصدق بالبداية، والآن أربح كل يوم</td><td>7100 MRU</td></tr>
-      <tr><td>مريم بنت محمد</td><td>حياتي أصبحت أسهل الآن</td><td>4100 MRU</td></tr>
-      <tr><td>أحمد ولد سيدي</td><td>الآن أعيش الحياة التي كنت أحلم بها</td><td>6300 MRU</td></tr>
-    </table>
+  <!-- Основной интерфейс -->
+  <div id="gameContainer">
+    <div class="boxes" id="boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <div class="buttons" id="gameButtons">
+      <button onclick="showApple()">Show Apple</button>
+      <button onclick="resetBoxes()">Reset</button>
+    </div>
   </div>
 
   <script>
-    let signalActive = false;
+    const boxes = document.querySelectorAll('.box');
 
-    function getSignal() {
-      const display = document.getElementById('signal-display');
-      const idSection = document.getElementById('id-input-section');
-      const signalBtn = document.getElementById('signal-btn');
+    function verificarID() {
+      const id = document.getElementById('idInput').value;
+      const errorMsg = document.getElementById('errorMsg');
+      const valid = /^13\d{8}$/.test(id);
 
-      if (signalActive) {
-        display.textContent = '🎯 جاري انتظار إدخال المعرف...';
-        idSection.style.display = 'block';
-        return;
-      }
-
-      signalActive = true;
-      signalBtn.disabled = true;
-
-      const rand = Math.random();
-      let multiplier;
-      if (rand < 0.6) {
-        multiplier = (Math.random() * (2.4 - 1) + 1).toFixed(2);
-      } else if (rand < 0.8) {
-        multiplier = (Math.random() * (6 - 3) + 3).toFixed(2);
+      if (valid) {
+        document.getElementById('authContainer').style.display = 'none';
+        document.getElementById('gameContainer').style.display = 'block';
+        document.getElementById('boxes').style.display = 'flex';
+        document.getElementById('gameButtons').style.display = 'block';
+        errorMsg.textContent = '';
       } else {
-        multiplier = (Math.random() * (98 - 10) + 10).toFixed(2);
+        errorMsg.textContent = 'معرّف غير صالح';
       }
-
-      display.innerHTML = `<span class='heartbeat'>🚀 ×${multiplier}</span>`;
-      idSection.style.display = 'block';
     }
 
-    function handleIdSubmit() {
-      const id = document.getElementById('user-id').value;
-      const warning = document.getElementById('balance-warning');
-      const depositBtn = document.getElementById('deposit-btn');
+    function showApple() {
+      resetBoxes();
+      const randomIndex = Math.floor(Math.random() * boxes.length);
+      boxes[randomIndex].classList.add('apple');
+    }
 
-      if (id.trim() !== '') {
-        warning.textContent = '📉 رصيد حسابك أقل من 90 MRU. يرجى إضافة أموال!';
-        depositBtn.style.display = 'inline-block';
-        document.getElementById('signal-btn').disabled = true;
-      }
+    function resetBoxes() {
+      boxes.forEach(box => box.classList.remove('apple'));
     }
   </script>
-</body>
 
+</body>
 </html>
