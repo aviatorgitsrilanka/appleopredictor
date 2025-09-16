@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -77,25 +77,33 @@
       text-align: center;
     }
 
+    #errorMsg, #successMsg {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
     #errorMsg {
       color: #ffdede;
-      margin-top: 5px;
-      font-weight: bold;
+    }
+
+    #successMsg {
+      color: #fffb99;
     }
   </style>
 </head>
 <body>
 
   <!-- Логотип -->
-  <img src="IMG_6957.png" alt="Apple of Fortune" class="logo">
+  <img src="IMG_6957.PNG" alt="Apple of Fortune" class="logo">
 
   <!-- Форма авторизации -->
   <div id="authContainer">
     <h2>1xbet أدخل رقم تعريف</h2>
     <input type="text" id="idInput" placeholder="ID (1XBET)" maxlength="10" />
     <br>
-    <button onclick="verificarID()">Enter</button>
+    <button onclick="verificarID()">دخول</button>
     <div id="errorMsg"></div>
+    <div id="successMsg"></div>
   </div>
 
   <!-- Основной интерфейс -->
@@ -109,8 +117,8 @@
     </div>
 
     <div class="buttons" id="gameButtons">
-      <button onclick="showApple()">Show Apple</button>
-      <button onclick="resetBoxes()">Reset</button>
+      <button onclick="showApple()">إظهار التفاحة</button>
+      <button onclick="resetBoxes()">إعادة الضبط</button>
     </div>
   </div>
 
@@ -120,16 +128,15 @@
     function verificarID() {
       const id = document.getElementById('idInput').value;
       const errorMsg = document.getElementById('errorMsg');
+      const successMsg = document.getElementById('successMsg');
       const valid = /^13\d{8}$/.test(id);
 
       if (valid) {
-        document.getElementById('authContainer').style.display = 'none';
-        document.getElementById('gameContainer').style.display = 'block';
-        document.getElementById('boxes').style.display = 'flex';
-        document.getElementById('gameButtons').style.display = 'block';
         errorMsg.textContent = '';
+        successMsg.textContent = 'කරුණාකර 1600 LKR තැන්පතුව කරන්න, ඉදිරියට යාම සඳහා';
       } else {
-        errorMsg.textContent = 'معرّف غير صالح';
+        successMsg.textContent = '';
+        errorMsg.textContent = 'අනීතික හැඳුනුම් අංකය (1XBET ගිණුම් ID)';
       }
     }
 
